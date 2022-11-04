@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @NoArgsConstructor
-public class Post {
+public class Post extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
