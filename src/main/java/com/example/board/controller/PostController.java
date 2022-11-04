@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,18 +21,11 @@ public class PostController {
     @PostMapping("/api/post/save")
     public Long savePost(@RequestBody PostSaveRequestDto postSaveRequestDto) {
         return postService.savePost(postSaveRequestDto);
-
-        /*return new PostSaveRequestDto(
-                postSaveRequestDto.getWriter(),
-                postSaveRequestDto.getTitle(),
-                postSaveRequestDto.getContent()
-        );*/
     }
 
     @PutMapping("api/post/update/{id}")
     public Long updatePost(@PathVariable("id") Long id, @RequestBody PostUpdateRequestDto requestDto) {
         return postService.update(id, requestDto);
-
     }
 
     @GetMapping("api/post/posts")
@@ -58,7 +50,7 @@ public class PostController {
         return postService.findById(id);
     }
 
-    @DeleteMapping("api/post/delete/{id}")
+    @DeleteMapping("api/post/{id}")
     public void delete(@PathVariable("id") Long id) {
         postService.deletePost(id);
     }
